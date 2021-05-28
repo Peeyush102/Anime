@@ -25,11 +25,12 @@ export const fetchAnimeQuoteFailure = (error) => {
   };
 };
 
-export const fetchRandomQuotes = () => {
+export const fetchRandomQuotes = (page = 1, anime = ``) => {
   return (dispatch) => {
+    const uri = anime === `` ? "" : `/anime?title=${anime}&?page=${page}`;
     dispatch(fetchAnimeQuoteRequest());
     axios
-      .get(`https://animechan.vercel.app/api/quotes`)
+      .get(`https://animechan.vercel.app/api/quotes${uri}`)
       .then((response) => {
         const data = response.data;
         dispatch(fetchAnimeQuoteSuccess(data));

@@ -7,6 +7,8 @@ import {
 const initialState = {
   loading: false,
   quotes: [],
+  page: 0,
+  anime: "",
   error: "",
 };
 
@@ -19,6 +21,7 @@ const animeQuoteReducer = (state = initialState, action) => {
       };
     case FETCH_QUOTE_SUCCESS:
       return {
+        ...state,
         quotes: action.payload,
         loading: false,
         error: ``,

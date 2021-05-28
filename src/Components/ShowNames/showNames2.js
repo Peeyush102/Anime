@@ -9,7 +9,7 @@ function ShowNames2() {
   const history = useHistory();
   useEffect(() => {
     dispatch(fetchNames());
-  }, []);
+  }, [dispatch]);
   return data.loading ? (
     <div>Loading...</div>
   ) : data.error ? (
@@ -17,11 +17,10 @@ function ShowNames2() {
   ) : (
     <div>
       <div>
+        {console.log(data)}
+        <button onClick={() => history.push(`/`)}> Get Random </button>
         {data.names.map((name) => (
-          <li
-            onClick={() => history.push(`/anime/?name=${name}page=1`)}
-            key={name}
-          >
+          <li onClick={() => history.push(`/?name=${name}&page=1`)} key={name}>
             {name}
           </li>
         ))}
