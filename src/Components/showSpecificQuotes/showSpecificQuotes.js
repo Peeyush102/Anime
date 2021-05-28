@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withRouter, useHistory } from "react-router-dom";
 import QuoteCard from "../Cards/quoteCard";
 import { fetchRandomQuotes } from "../../redux";
+import "./showSpecificQuotes.css";
 
 function ShowSpecificQuotes({ location }) {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function ShowSpecificQuotes({ location }) {
       if (data.length === 0) {
         history.push(`/`);
       }
-      if (page <= 0) {
+      if (page <= 0 || page === undefined || page === null) {
         history.push(`/?name=${data}&page=1`);
       }
       setNamePage(() => ({
@@ -27,16 +28,17 @@ function ShowSpecificQuotes({ location }) {
         page: page,
       }));
       dispatch(fetchRandomQuotes(page, data));
-    } else {
+    } else if (data === undefined || data === null) {
       setNamePage({
         name: "",
         page: 1,
       });
       dispatch(fetchRandomQuotes());
+      //history.push(`/`);
     }
   }, [location, history, dispatch]);
   return (
-    <div>
+    <div className="quotes">
       {dataV.loading ? (
         <>Loading...</>
       ) : dataV.error ? (

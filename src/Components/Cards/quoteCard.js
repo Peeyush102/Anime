@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 function QuoteCard(props) {
   return (
-    <Card key={props.props.quote} style={{ width: "18rem" }}>
+    <Card key={props.props.quote} style={{ width: "70vw", border: "none" }}>
       <Card.Body>
         <Card.Title>{props.props.anime}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
