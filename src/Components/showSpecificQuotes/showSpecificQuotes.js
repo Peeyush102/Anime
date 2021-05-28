@@ -64,7 +64,7 @@ function ShowSpecificQuotes({ location }) {
           {namePage.name !== `` && namePage.page}
           {namePage.name !== `` && (
             <button
-              disabled={namePage.page == 1}
+              disabled={namePage.page === "1"}
               onClick={() => {
                 history.push(
                   `/?name=${namePage.name}&page=${namePage.page - 1}`
