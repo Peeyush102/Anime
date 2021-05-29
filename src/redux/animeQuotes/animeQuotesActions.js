@@ -25,7 +25,7 @@ export const fetchAnimeQuoteFailure = (error) => {
   };
 };
 
-export const fetchRandomQuotes = (page = 1, anime = ``) => {
+export const fetchQuotes = (page = 1, anime = ``) => {
   return (dispatch) => {
     const uri = anime === `` ? "" : `/anime?title=${anime}&?page=${page}`;
     dispatch(fetchAnimeQuoteRequest());

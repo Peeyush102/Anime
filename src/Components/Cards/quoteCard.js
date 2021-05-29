@@ -1,15 +1,32 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Breadcrumb from "react-bootstrap/Breadcrumb";
+import * as AiIcons from "react-icons/ai";
 
-function QuoteCard(props) {
+import "./quoteCards.css";
+
+function QuoteCard({ props }) {
+  const copyQuote = (quote) => {
+    alert(quote);
+    navigator.clipboard.writeText(quote);
+  };
   return (
-    <Card key={props.props.quote} style={{ width: "70vw", border: "none" }}>
+    <Card className="card-Changes" key={props.quote} style={{ width: "70vw" }}>
       <Card.Body>
-        <Card.Title>{props.props.anime}</Card.Title>
+        <Card.Title>{props.anime}</Card.Title>
+        <Card.Text>{props.quote}</Card.Text>
         <Card.Subtitle className="mb-2 text-muted">
-          {props.props.character}
+          -{props.character}
         </Card.Subtitle>
-        <Card.Text>{props.props.quote}</Card.Text>
+        <Breadcrumb className="breadCrum-Changes">
+          <Breadcrumb.Item
+            onClick={() => {
+              copyQuote(props.quote);
+            }}
+          >
+            COPY QUOTE <AiIcons.AiOutlineCopy />{" "}
+          </Breadcrumb.Item>
+        </Breadcrumb>
       </Card.Body>
     </Card>
   );

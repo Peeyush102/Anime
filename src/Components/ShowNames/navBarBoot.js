@@ -7,6 +7,7 @@ import "./navBarBoot.css";
 import { IconContext } from "react-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNames } from "./../../redux";
+import Loading from "../LoadingComponent/loading";
 
 function NavbarBoot() {
   const [sidebar, setSidebar] = useState(false);
@@ -35,15 +36,19 @@ function NavbarBoot() {
                 </div>
               )}
             </li>
-            {data.names.map((item, index) => {
-              return (
-                <li key={index} className="nav-text">
-                  <Link to={`/?name=${item}&page=1`}>
-                    <span>{item}</span>
-                  </Link>
-                </li>
-              );
-            })}
+            {data.loading === true ? (
+              <Loading />
+            ) : (
+              data.names.map((item, index) => {
+                return (
+                  <li key={index} className="nav-text">
+                    <Link to={`/?name=${item}&page=1`}>
+                      <span>{item}</span>
+                    </Link>
+                  </li>
+                );
+              })
+            )}
           </ul>
         </nav>
       </IconContext.Provider>

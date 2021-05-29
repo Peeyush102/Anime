@@ -33,6 +33,7 @@
   transition: 350ms;
   z-index: 1;
   width: 100%;
+  /* grid-area: "nav"; */
 }
 
 .nav-text {

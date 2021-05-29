@@ -1,2 +1,2 @@
 export { fetchNames } from "./animeNames/nameFetchActions";
-export { fetchRandomQuotes } from "./animeQuotes/animeQuotesActions";
+export { fetchQuotes } from "./animeQuotes/animeQuotesActions";

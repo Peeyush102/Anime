@@ -1,2 +1,7 @@
 .App {
+  display: grid;
+  /* grid-template-areas:
+    "nav header header header"
+    "nav main main main"
+    "nav footer footer footer"; */
 }

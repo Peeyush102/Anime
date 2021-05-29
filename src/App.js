@@ -5,7 +5,7 @@ import store from "./redux/store";
 import NavBarBoot from "./Components/ShowNames/navBarBoot";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ShowSpecificQuotes from "./Components/showSpecificQuotes/showSpecificQuotes";
+import ShowQuotes from "./Components/showQuotes/showQuotes";
 import errorPage from "./Components/404Page/errorPage";
 function App() {
   return (
@@ -14,9 +14,8 @@ function App() {
         <div className="App">
           <NavBarBoot />
           <Switch>
-            {/* <Route exact path="/" component={ShowNames2} /> */}
-            <Route exact path="/" component={ShowSpecificQuotes} />
-            <Route exact path="*" component={errorPage} />
+            <Route exact path="/" component={ShowQuotes} />
+            <Route path="*" component={errorPage} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -1,0 +1,9 @@
+.card-Changes {
+  margin: 10px 0px;
+}
+.breadCrum-Changes {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+}
