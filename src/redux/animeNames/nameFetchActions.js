@@ -3,6 +3,7 @@ import {
   FETCH_NAMES_REQUEST,
   FETCH_NAMES_SUCCESS,
   FETCH_NAMES_FAILURE,
+  SHOW_LIST,
 } from "./nameFetchTypes";
 
 export const fetchNamesRequest = () => {
@@ -24,7 +25,11 @@ export const fetchNamesFailure = (error) => {
     payload: error,
   };
 };
-
+export const showList = () => {
+  return {
+    type: SHOW_LIST,
+  };
+};
 export const fetchNames = () => {
   return (dispatch) => {
     dispatch(fetchNamesRequest());

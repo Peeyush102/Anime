@@ -1,29 +1,27 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory, withRouter } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./pagination.css";
 
-function Pagination(props) {
+function Pagination() {
   const history = useHistory();
+  const quoteData = useSelector((state) => state.animeQuoteReducer);
   return (
-    // <>{console.log(props.namePage)}</>
-    <div>
+    // <>{console.log(quoteData)}</>
+    <div className="Pagination">
       <Button
-        disabled={props.namePage.page === 1}
+        disabled={quoteData.page === 1}
         onClick={() => {
-          history.push(
-            `/?name=${props.namePage.name}&page=${props.namePage.page - 1}`
-          );
+          history.push(`/?name=${quoteData.name}&page=${quoteData.page - 1}`);
         }}
       >
         Back
       </Button>
-      <span className="PaginationSpan">{props.namePage.page}</span>
+      <span className="PaginationSpan">{quoteData.page}</span>
       <Button
         onClick={() => {
-          history.push(
-            `/?name=${props.namePage.name}&page=${props.namePage.page - -1}`
-          );
+          history.push(`/?name=${quoteData.name}&page=${quoteData.page - -1}`);
         }}
       >
         Next

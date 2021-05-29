@@ -1,2 +1,6 @@
-export { fetchNames } from "./animeNames/nameFetchActions";
-export { fetchQuotes } from "./animeQuotes/animeQuotesActions";
+export { fetchNames, showList } from "./animeNames/nameFetchActions";
+export {
+  fetchQuotes,
+  setAnimeName,
+  setPageNumber,
+} from "./animeQuotes/animeQuotesActions";

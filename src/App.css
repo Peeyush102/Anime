@@ -1,7 +1,19 @@
 .App {
   display: grid;
-  /* grid-template-areas:
-    "nav header header header"
-    "nav main main main"
-    "nav footer footer footer"; */
+  grid-template-columns: 20% auto;
+  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-areas:
+    "nav  header"
+    "nav  quotes "
+    "nav footer ";
+}
+@media (max-width: 768px) {
+  .App {
+    grid-template-areas:
+      "nav nav "
+      "header header"
+      "quotes quotes"
+      "footer footer ";
+    grid-template-rows: auto;
+  }
 }

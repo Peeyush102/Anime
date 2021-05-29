@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter, useHistory } from "react-router-dom";
 import QuoteCard from "../Cards/quoteCard";
@@ -12,28 +12,16 @@ function ShowQuotes({ location }) {
   const dispatch = useDispatch();
   const quoteData = useSelector((state) => state.animeQuoteReducer);
   const history = useHistory();
-  const [namePage, setNamePage] = useState({
-    name: "",
-    page: 1,
-  });
   useEffect(() => {
-    let data = new URLSearchParams(location.search).get("name");
+    let nameOfAnime = new URLSearchParams(location.search).get("name");
     let page = new URLSearchParams(location.search).get("page");
-    if (location.search.length !== 0 && (data === undefined || data === null)) {
-      history.push("/");
-    } else if (data !== undefined && data !== null) {
-      if (data.length === 0) {
-        history.push(`/`);
-      }
-      if (page <= 0 || page === undefined || page === null) {
-        history.push(`/?name=${data}&page=1`);
-      }
+    if (nameOfAnime) {
       page = parseInt(page);
-      setNamePage(() => ({
-        name: data,
-        page: page,
-      }));
-      dispatch(fetchQuotes(page, data));
+      if (!page || typeof page !== "number" || page < 0)
+        history.push(`/?name=${nameOfAnime}&page=1`);
+      dispatch(fetchQuotes(page, nameOfAnime));
+    } else if (location.search) {
+      history.push(`/`);
     } else {
       dispatch(fetchQuotes());
     }
@@ -46,11 +34,9 @@ function ShowQuotes({ location }) {
         <Error error={quoteData.error} />
       ) : (
         <div>
-          <h1>{namePage.name}</h1>
           {quoteData.quotes.map((quote, index) => (
             <QuoteCard key={index} props={quote} />
           ))}
-          {namePage.name !== "" && <Pagination namePage={namePage} />}
         </div>
       )}
     </div>

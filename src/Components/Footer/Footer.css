@@ -1,0 +1,10 @@
+.Footer {
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Footer-Container {
+  width: 70vw;
+}

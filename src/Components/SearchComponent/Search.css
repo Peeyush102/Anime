@@ -1,0 +1,11 @@
+.Search {
+  position: relative;
+}
+.ResultDiv {
+  position: absolute;
+  background: white;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  border-radius: 2%;
+}

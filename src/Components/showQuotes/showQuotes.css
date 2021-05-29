@@ -2,4 +2,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  grid-area: quotes;
+  overflow-y: auto;
 }

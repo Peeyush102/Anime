@@ -1,47 +1,54 @@
 import React, { useState, useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+// import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import "./navBarBoot.css";
 import { IconContext } from "react-icons";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchNames } from "./../../redux";
+import { fetchNames, showList } from "./../../redux";
 import Loading from "../LoadingComponent/loading";
+import Search from "../SearchComponent/Search";
 
 function NavbarBoot() {
-  const [sidebar, setSidebar] = useState(false);
   const data = useSelector((state) => state.nameFetchReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchNames());
   }, [dispatch]);
 
-  const showSidebar = () => setSidebar(!sidebar);
-
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbarboot">
-          <div className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </div>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
+        <nav className={"nav-menu"}>
+          <ul className="nav-menu-items menu1">
             <li className="navbarboot-toggle">
-              {showSidebar && (
-                <div className={sidebar ? "menu-bars" : "noneDisplay"}>
-                  <AiIcons.AiOutlineClose />
-                </div>
-              )}
+              <h1>
+                <FaIcons.FaDrupal />
+              </h1>
+              <h1>Anime Quotes {data.loading}</h1>
+              <FaIcons.FaBars
+                className="burgerButton"
+                onClick={() => dispatch(showList())}
+              />
             </li>
+          </ul>
+          <ul className="nav-menu-items menu1">
+            <Search />
+          </ul>
+          <ul
+            className={data.visible ? "nav-menu-items menu2" : "nav-menu-items"}
+          >
             {data.loading === true ? (
               <Loading />
             ) : (
               data.names.map((item, index) => {
                 return (
-                  <li key={index} className="nav-text">
+                  <li
+                    onClick={() => dispatch(showList())}
+                    key={index}
+                    className="nav-text"
+                  >
                     <Link to={`/?name=${item}&page=1`}>
                       <span>{item}</span>
                     </Link>
