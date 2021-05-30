@@ -6,17 +6,17 @@
 
 ## Description
 
-Anime Quotes is a website used to view different quotes from different animes.
+Anime Quotes is a website to view quotes from different anime.
 
 ## Project Setup
 
-npm install
+npm install\
 npm run
 
 ## Libraries used
 
 [1. ReactJs](https://reactjs.org/)\
-[2. React-Redux and Redux (along with react-thunk middleware)](https://react-redux.js.org/)\
+[2. React-Redux and Redux (along with thunk middleware)](https://react-redux.js.org/)\
 [3. react-router-dom](https://www.npmjs.com/package/react-router-dom)\
 [4. axios](https://www.npmjs.com/package/axios)\
 [5. React BootStrap](https://react-bootstrap.github.io/)\
