@@ -7,8 +7,12 @@ import "./quoteCards.css";
 
 function QuoteCard({ props }) {
   const copyQuote = (quote) => {
-    alert(quote);
-    navigator.clipboard.writeText(quote);
+    //alert(quote);
+    try {
+      navigator.clipboard.writeText(quote);
+    } catch (e) {
+      alert(e);
+    }
   };
   return (
     <Card className="card-Changes" key={props.quote} style={{ width: "70vw" }}>

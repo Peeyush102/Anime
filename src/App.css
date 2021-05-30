@@ -1,3 +1,6 @@
+:root {
+  --sm: 768px;
+}
 .App {
   display: grid;
   grid-template-columns: 20% auto;
@@ -6,6 +9,12 @@
     "nav  header"
     "nav  quotes "
     "nav footer ";
+}
+.TitleAll {
+  font-weight: bold;
+  font-size: 200%;
+  text-align: center;
+  /* width: var(--widthVal); */
 }
 @media (max-width: 768px) {
   .App {

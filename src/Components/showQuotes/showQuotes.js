@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { withRouter, useHistory } from "react-router-dom";
 import QuoteCard from "../Cards/quoteCard";
 import { fetchQuotes } from "../../redux";
-import Pagination from "./../Pagination/pagination";
+// import Pagination from "./../Pagination/pagination";
 import Loading from "../LoadingComponent/loading";
 import Error from "./../ErrorComponent/error";
 import "./showQuotes.css";

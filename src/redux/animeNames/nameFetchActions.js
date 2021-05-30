@@ -25,9 +25,10 @@ export const fetchNamesFailure = (error) => {
     payload: error,
   };
 };
-export const showList = () => {
+export const showList = (boolVal) => {
   return {
     type: SHOW_LIST,
+    payload: boolVal,
   };
 };
 export const fetchNames = () => {

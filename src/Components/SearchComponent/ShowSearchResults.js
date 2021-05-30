@@ -1,17 +1,35 @@
 import React from "react";
 import "./Search.css";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { showList } from "./../../redux";
+// import { Link } from "react-router-dom";
 
 function ShowSearchResults({ datas, clearSearch }) {
   const history = useHistory();
+  const dispatch = useDispatch();
   const handleOnClick = (data) => {
-    clearSearch(``);
-    history.push(`/?name=${data}&page=1`);
+    clearSearch(() => ``);
+    if (typeof data === "string") {
+      //console.log(data);
+      history.push(`/?name=${data}&page=1`);
+    }
   };
   return (
-    <div className="ResultDiv">
+    <div className="ResultDiv ">
       {datas.map((data) => {
-        return <div onClick={() => handleOnClick(data)}>{data}</div>;
+        return (
+          <div
+            className="nav-text"
+            key={data}
+            onClick={() => dispatch(showList(false))}
+            //onClick={() => handleOnClick(data)}
+          >
+            <div onClick={() => handleOnClick(data)} className="Search-link">
+              {data}
+            </div>
+          </div>
+        );
       })}
     </div>
   );

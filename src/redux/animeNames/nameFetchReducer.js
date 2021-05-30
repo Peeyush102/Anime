@@ -34,10 +34,17 @@ const nameFetchReducer = (state = initialState, action) => {
         error: action.payload,
       };
     case SHOW_LIST:
-      return {
-        ...state,
-        visible: !state.visible,
-      };
+      if (action.payload !== undefined && action.payload !== null)
+        return {
+          ...state,
+          visible: action.payload,
+        };
+      else
+        return {
+          ...state,
+          visible: !state.visible,
+        };
+
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import * as FaIcons from "react-icons/fa";
 // import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ function NavbarBoot() {
               <h1>
                 <FaIcons.FaDrupal />
               </h1>
-              <h1>Anime Quotes {data.loading}</h1>
+              <div className="TitleAll">Anime Quotes {data.loading}</div>
               <FaIcons.FaBars
                 className="burgerButton"
                 onClick={() => dispatch(showList())}
@@ -37,7 +37,9 @@ function NavbarBoot() {
             <Search />
           </ul>
           <ul
-            className={data.visible ? "nav-menu-items menu2" : "nav-menu-items"}
+            className={
+              !data.visible ? "nav-menu-items menu2" : "nav-menu-items"
+            }
           >
             {data.loading === true ? (
               <Loading />

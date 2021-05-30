@@ -15,7 +15,7 @@ function Search() {
         })
       : [];
     if (newArrayResult) setresultArray(() => newArrayResult);
-  }, [searchValue]);
+  }, [searchValue, data.names]);
   const handleChange = (fieldValue) => {
     setSearchValue(() => fieldValue);
   };
@@ -27,7 +27,7 @@ function Search() {
         className="mr-2"
         aria-label="Search"
         onChange={(e) => handleChange(e.target.value)}
-        value={searchValue.value}
+        value={searchValue}
       />
       <>
         <ShowSearchResults

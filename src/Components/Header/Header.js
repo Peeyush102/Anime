@@ -1,5 +1,5 @@
 import React from "react";
-import Pagination from "./../Pagination/pagination";
+// import Pagination from "./../Pagination/pagination";
 import { useSelector } from "react-redux";
 import "./Header.css";
 
@@ -8,7 +8,11 @@ function Header() {
   return (
     <div className="Header">
       <div className="Header-container">
-        <h1>{quoteData.name}</h1>
+        <div className="TitleAll">
+          {quoteData.name
+            ? quoteData.name.toUpperCase()
+            : "Quotes of the Day Quotes of the Day Quotes of the Day Quotes of the Day Quotes of the Day"}
+        </div>
         {/* <Pagination /> */}
         <hr />
       </div>
