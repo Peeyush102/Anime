@@ -4,3 +4,4 @@ export {
   setAnimeName,
   setPageNumber,
 } from "./animeQuotes/animeQuotesActions";
+//anime Name and anime Quotes actions exported

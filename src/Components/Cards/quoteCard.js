@@ -7,15 +7,17 @@ import "./quoteCards.css";
 
 function QuoteCard({ props }) {
   const copyQuote = (quote) => {
-    //alert(quote);
+    // logic to copy quote in clipboard
     try {
       navigator.clipboard.writeText(quote);
     } catch (e) {
-      alert(e);
+      //if any error is encountered an alert is displayed
+      alert("Error in copying!!");
     }
   };
   return (
-    <Card className="card-Changes" key={props.quote} style={{ width: "70vw" }}>
+    //card rendered on basis of each quote object recieved as props
+    <Card className="card-Changes" key={props.quote}>
       <Card.Body>
         <Card.Title>{props.anime}</Card.Title>
         <Card.Text>{props.quote}</Card.Text>

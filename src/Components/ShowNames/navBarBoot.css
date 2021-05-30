@@ -1,9 +1,5 @@
-.navbarboot {
-  background-color: #060b26;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.drupleIco {
+  font-size: 500%;
 }
 
 .menu-bars {
@@ -17,15 +13,11 @@
 
 .nav-menu {
   background-color: #060b26;
-
-  /* width: 250px; */
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* position: fixed; */
   top: 0;
-  /* left: -100%; */
   transition: 850ms;
   z-index: 1;
   grid-area: nav;
@@ -35,13 +27,6 @@
   border: rgba(0, 0, 0, 0.1);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* .nav-menu.active {
-  left: 0;
-  transition: 350ms;
-  z-index: 1;
-  width: 100%;
-  grid-area: nav;
-} */
 
 .nav-text {
   display: flex;
@@ -49,7 +34,6 @@
   align-items: center;
   padding: 8px 0px 8px 0px;
   list-style: none;
-  /* height: 60px; */
   word-wrap: anywhere;
 }
 
@@ -61,7 +45,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-
   border-radius: 4px;
 }
 

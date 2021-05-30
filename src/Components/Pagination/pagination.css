@@ -6,3 +6,8 @@
 .PaginationSpan {
   margin-right: 16px;
 }
+@media (max-width: 768px) {
+  .Pagination {
+    justify-content: center;
+  }
+}

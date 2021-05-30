@@ -41,7 +41,7 @@ export const fetchNames = () => {
         dispatch(fetchNamesSuccess(names));
       })
       .catch((error) => {
-        const err = error.Message;
+        const err = error.message;
         dispatch(fetchNamesFailure(err));
       });
   };
