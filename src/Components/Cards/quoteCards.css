@@ -8,3 +8,9 @@
   align-items: flex-end;
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .card-Changes {
+    width: 90vw;
+  }
+}

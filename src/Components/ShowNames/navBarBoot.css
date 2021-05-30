@@ -82,7 +82,9 @@ span {
 .noneDisplay {
   display: none;
 }
-
+.nav-h2 {
+  margin-top: 15px;
+}
 @media (max-width: 768px) {
   .burgerButton {
     display: block;

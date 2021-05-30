@@ -23,12 +23,12 @@ function App() {
         <BrowserRouter>
           <div className="App">
             <NavBarBoot />
-            <Header />
+            <Route exact path="/" component={Header} />
             <Switch>
               <Route exact path="/" component={ShowQuotes} />
               <Route path="*" component={errorPage} />
             </Switch>
-            <Footer />
+            <Route exact path="/" component={Footer} />
           </div>
         </BrowserRouter>
       </Provider>

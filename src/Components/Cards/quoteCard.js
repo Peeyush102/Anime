@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import * as AiIcons from "react-icons/ai";
@@ -6,14 +6,22 @@ import * as AiIcons from "react-icons/ai";
 import "./quoteCards.css";
 
 function QuoteCard({ props }) {
+  const [disable, setDisable] = useState(false);
+  //using disable to disable copy quote functionality for 2 seconds
+  useEffect(() => {
+    const timeOut = setTimeout(() => setDisable(() => false), 2000);
+    return () => clearTimeout(timeOut);
+  }, [disable]);
   const copyQuote = (quote) => {
     // logic to copy quote in clipboard
-    try {
-      navigator.clipboard.writeText(quote);
-    } catch (e) {
-      //if any error is encountered an alert is displayed
-      alert("Error in copying!!");
-    }
+    if (!disable)
+      try {
+        navigator.clipboard.writeText(quote);
+        setDisable(() => true);
+      } catch (e) {
+        //if any error is encountered an alert is displayed
+        alert("Error in copying!!");
+      }
   };
   return (
     //card rendered on basis of each quote object recieved as props
@@ -26,6 +34,7 @@ function QuoteCard({ props }) {
         </Card.Subtitle>
         <Breadcrumb className="breadCrum-Changes">
           <Breadcrumb.Item
+            active={disable}
             onClick={() => {
               copyQuote(props.quote);
             }}

@@ -43,8 +43,7 @@ function NavbarBoot() {
           </li>
           <Search />
           <li className="navbarboot-toggle">
-            <div> Or </div>
-            <div>See List of Animes</div>
+            <h2 className="nav-h2">All Animes</h2>
             {/* showList() functions toggles the visible property of showName state. visible property enables displaying and hiding of all the anime names.   */}
             {/* Please not that this button only functions in mobile view and is hidden in desktop view( done via css of burgerButton class). */}
             <AiIcons.AiFillCaretDown

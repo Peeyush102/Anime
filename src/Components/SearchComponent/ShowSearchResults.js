@@ -3,7 +3,6 @@ import "./Search.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { showList } from "./../../redux";
-// import { Link } from "react-router-dom";
 
 function ShowSearchResults({ datas, clearSearch }) {
   const history = useHistory();
@@ -11,7 +10,6 @@ function ShowSearchResults({ datas, clearSearch }) {
   const handleOnClick = (data) => {
     clearSearch(() => ``);
     if (typeof data === "string") {
-      //console.log(data);
       history.push(`/?name=${data}&page=1`);
     }
   };
@@ -23,7 +21,6 @@ function ShowSearchResults({ datas, clearSearch }) {
             className="nav-text"
             key={data}
             onClick={() => dispatch(showList(false))}
-            //onClick={() => handleOnClick(data)}
           >
             <div onClick={() => handleOnClick(data)} className="Search-link">
               {data}
