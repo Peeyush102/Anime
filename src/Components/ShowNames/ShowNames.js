@@ -1,16 +1,14 @@
 import React, { useEffect } from "react";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 //using react icons library for icons
 import { Link } from "react-router-dom";
 
-import "./navBarBoot.css";
+import "./ShowNames.css";
 import { IconContext } from "react-icons";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchNames, showList } from "./../../redux";
+import { fetchNames, showList } from "../../redux";
 import Loading from "../LoadingComponent/loading";
-import Search from "../SearchComponent/Search";
-import Error from "./../ErrorComponent/error";
+import Error from "../ErrorComponent/error";
+import Headings from "./Headings";
 
 /* 
 This component represents the side NavBar(in Desktop) or the top NavBar(in Mobile). 
@@ -18,7 +16,7 @@ Since it is outside Switch Tag, it will be available throughout the website.
 Even on 404 Page
 */
 
-function NavbarBoot() {
+function ShowNames() {
   const data = useSelector((state) => state.nameFetchReducer);
   //using redux store nameFetchReducer to get Anime Names state
   const dispatch = useDispatch();
@@ -31,27 +29,7 @@ function NavbarBoot() {
     //icon context provider provides same color to all the react icons used in this component
     <IconContext.Provider value={{ color: "#fff" }}>
       <nav className="nav-menu">
-        <ul className="nav-menu-items menu1">
-          <li className="navbarboot-toggle">
-            <div className="TitleAll drupleIco">
-              <Link to={`/`}>
-                {/* redirects to home on clicking this icon*/}
-                <FaIcons.FaDrupal />
-              </Link>
-            </div>
-            <div className="TitleAll">Anime Quotes</div>
-          </li>
-          <Search />
-          <li className="navbarboot-toggle">
-            <h2 className="nav-h2">All Animes</h2>
-            {/* showList() functions toggles the visible property of showName state. visible property enables displaying and hiding of all the anime names.   */}
-            {/* Please not that this button only functions in mobile view and is hidden in desktop view( done via css of burgerButton class). */}
-            <AiIcons.AiFillCaretDown
-              className="burgerButton"
-              onClick={() => dispatch(showList())}
-            />
-          </li>
-        </ul>
+        <Headings showListFunction={() => dispatch(showList())} />
         <ul
           className={!data.visible ? "nav-menu-items menu2" : "nav-menu-items"}
         >
@@ -98,4 +76,4 @@ function NavbarBoot() {
   );
 }
 
-export default NavbarBoot;
+export default ShowNames;

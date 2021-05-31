@@ -6,9 +6,11 @@ import "./Search.css";
 
 function Search() {
   const data = useSelector((state) => state.nameFetchReducer);
-  const [searchValue, setSearchValue] = useState("");
-  const [resultArray, setresultArray] = useState([]);
+  //getting names from anime Name store
+  const [searchValue, setSearchValue] = useState(""); //value to be searched for
+  const [resultArray, setresultArray] = useState([]); //Array containing filtered results
   useEffect(() => {
+    //checking if search result contains data
     let newArrayResult = searchValue
       ? data.names.filter((name) => {
           return name.toLowerCase().includes(searchValue.toLocaleLowerCase());

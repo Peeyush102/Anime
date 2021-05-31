@@ -1,9 +1,9 @@
 import React from "react";
-import "./errorPage.css";
+import "./ErrorPage.css";
 /*
 This is 404 page, when user went to a non-existing route in website
 */
-function errorPage() {
+function ErrorPage() {
   return (
     <div className="Error404">
       <h1>404</h1>
@@ -12,4 +12,4 @@ function errorPage() {
   );
 }
 
-export default errorPage;
+export default ErrorPage;

@@ -8,7 +8,7 @@ function Header() {
   return (
     <div className="Header">
       <div className="Header-container">
-        <div className="TitleAll">
+        <div className="title-all">
           {quoteData.name ? quoteData.name.toUpperCase() : "Quotes of the Day"}
         </div>
         <hr />

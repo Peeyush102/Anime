@@ -2,13 +2,13 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import errorPage from "./Components/404Page/errorPage";
+import ErrorPage from "./Components/404Page/ErrorPage";
 import Loading from "./Components/LoadingComponent/loading";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const NavBarBoot = lazy(() => import("./Components/ShowNames/navBarBoot"));
-const ShowQuotes = lazy(() => import("./Components/showQuotes/showQuotes"));
+const ShowNames = lazy(() => import("./Components/ShowNames/ShowNames"));
+const ShowQuotes = lazy(() => import("./Components/showQuotes/ShowQuotes"));
 const Header = lazy(() => import("./Components/Header/Header"));
 const Footer = lazy(() => import("./Components/Footer/Footer"));
 
@@ -22,11 +22,11 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <div className="App">
-            <NavBarBoot />
+            <ShowNames />
             <Route exact path="/" component={Header} />
             <Switch>
               <Route exact path="/" component={ShowQuotes} />
-              <Route path="*" component={errorPage} />
+              <Route path="*" component={ErrorPage} />
             </Switch>
             <Route exact path="/" component={Footer} />
           </div>

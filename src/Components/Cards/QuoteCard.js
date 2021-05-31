@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import * as AiIcons from "react-icons/ai";
-
-import "./quoteCards.css";
+import "./QuoteCards.css";
 
 function QuoteCard({ props }) {
   const [disable, setDisable] = useState(false);

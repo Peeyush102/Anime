@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter, useHistory } from "react-router-dom";
-import QuoteCard from "../Cards/quoteCard";
+import QuoteCard from "../Cards/QuoteCard";
 import { fetchQuotes } from "../../redux";
 import Loading from "../LoadingComponent/loading";
-import Error from "./../ErrorComponent/error";
-import "./showQuotes.css";
+import Error from "../ErrorComponent/error";
+import "./ShowQuotes.css";
 
 /*
   This function renders all the quotes based on values retrived from url
@@ -20,6 +20,15 @@ function ShowQuotes({ location }) {
   const dispatch = useDispatch();
   const quoteData = useSelector((state) => state.animeQuoteReducer);
   //fetching animeQuote state
+  /*
+animeQuote state definition : {
+  loading : boolean,
+  quotes : Array of strings
+  page : number,
+  name : string,
+  error : string
+}
+ */
   const history = useHistory();
   useEffect(() => {
     let nameOfAnime = new URLSearchParams(location.search).get("name");

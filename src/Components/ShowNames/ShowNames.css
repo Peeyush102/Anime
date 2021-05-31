@@ -73,7 +73,7 @@
   left: 0;
   color: white;
 }
-.burgerButton {
+.downArrow {
   display: none;
 }
 span {
@@ -86,7 +86,7 @@ span {
   margin-top: 15px;
 }
 @media (max-width: 768px) {
-  .burgerButton {
+  .downArrow {
     display: block;
   }
   .nav-menu {
